@@ -14,15 +14,9 @@ const images = [
 ];
 
 
-const galImeg = images.map((imag) => {
-const lie = document.createElement('li');
-lie.style.marginRight = "10px";
-lie.insertAdjacentHTML("beforeend",`<img src = ${imag.url} alt = ${imag.alt} width = 500 height = 300>`);
-console.log(lie);
-return lie;
+const listOfImages = document.querySelector(".gallery");
+const galleryItems = images.map((item) => {
+  return `<li><img src="${item.url}" alt="${item.alt}" class="gallery_item"></li>`;
 });
 
-const ule = document.querySelector(".gallery");
-ule.style.display = 'flex';
-ule.append(...galImeg);
-console.log(ule);
+listOfImages.insertAdjacentHTML("afterbegin", galleryItems.join(""));
